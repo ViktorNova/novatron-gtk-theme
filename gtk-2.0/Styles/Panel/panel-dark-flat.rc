@@ -1,0 +1,90 @@
+include						"Styles/Panel/panel-dark.rc"
+
+style "panel-dark-flat"
+{
+	xthickness				= 1
+	ythickness				= 0
+
+	bg[NORMAL]				= "#000000"
+	bg[PRELIGHT]				= "#00224e"
+	bg[SELECTED]				= "#00224e"
+	bg[INSENSITIVE]				= "#000000"
+	bg[ACTIVE]				= "#0055FF"
+
+	fg[NORMAL]				= "#0055FF"
+	fg[PRELIGHT]				= "#000000"
+	fg[SELECTED]				= "#000000"
+	fg[ACTIVE]				= "#000000"
+	fg[INSENSITIVE]				= "#0044cc"
+
+	engine "pixmap"
+	{
+		image
+		{
+			function		= FOCUS
+			recolorable		= TRUE
+			file			= "Fixes/none.png"
+			border			= { 0, 0, 0, 0}
+			stretch			= TRUE
+		}
+		image
+		{
+			function		= ARROW
+			recolorable		= TRUE
+			overlay_file		= "Arrows/arrow-up-prelight.png"
+			overlay_border		= { 0, 0, 0, 0}
+			overlay_stretch		= FALSE
+			arrow_direction		= UP
+		}    
+		image
+		{
+			function		= ARROW
+			recolorable		= TRUE
+			overlay_file		= "Arrows/arrow-down-prelight.png"
+			overlay_border		= { 0, 0, 0, 0}
+			overlay_stretch		= FALSE
+			arrow_direction		= DOWN
+		}    
+		image
+		{
+			function		= ARROW
+			recolorable		= TRUE
+			overlay_file		= "Arrows/arrow-left-prelight.png"
+			overlay_border		= { 0, 0, 0, 0}
+			overlay_stretch		= FALSE
+			arrow_direction		= LEFT
+		}
+		image
+		{
+			function		= ARROW
+			recolorable		= TRUE
+			overlay_file		= "Arrows/arrow-right-prelight.png"
+			overlay_border		= { 0, 0, 0, 0}
+			overlay_stretch		= FALSE
+			arrow_direction		= RIGHT
+		}
+	}
+}
+
+class "PanelApp*"				style "panel-dark-flat"
+class "PanelToplevel*"				style "panel-dark-flat"
+class "*Xfce*Panel*"				style "panel-dark-flat"
+
+widget "*fast-user-switch*"			style "panel-dark-flat"
+widget "PanelToplevel*PanelAppletFrame"		style "panel-dark-flat"
+widget "PanelToplevel*PanelMenuBar"		style "panel-dark-flat"
+widget "PanelToplevel*PanelWidget*"		style "panel-dark-flat"
+widget "?PanelWidget?"				style "panel-dark-flat"
+widget "*Xfce*Panel*"				style "panel-dark-flat"
+
+widget_class "BonoboPlug*Panel*"		style "panel-dark-flat"
+widget_class "*tray*"				style "panel-dark-flat"
+
+widget "*PanelApplet*" 				style "panel-dark-flat"
+
+widget_class "Panel*<GtkButton>"		style "panel-button-dark"
+widget_class "BonoboPlug*Applet*<GtkButton>"	style "panel-button-dark"
+
+widget_class "*Tasklist.*<GtkButton>"		style:highest "taskbar-button-dark"
+
+include						"Styles/Panel/panel.rc"
